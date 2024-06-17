@@ -1911,6 +1911,7 @@ end
 
 module Make () : S = struct
   let t = Manager.create ()
+  let () = Gc.finalise (fun t -> ignore (ref t)) t
 
   module Sort = Sort
 
